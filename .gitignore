@@ -1,0 +1,7 @@
+.DS_Store
+.Trashes
+*.xcworkspace
+nrdSYM.zip
+Pods
+upload_dsym_results
+xcuserdata
