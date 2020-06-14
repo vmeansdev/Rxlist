@@ -34,6 +34,7 @@
 		3FE04B9E2494F2970041E6F9 /* AppInitializationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE04B9D2494F2970041E6F9 /* AppInitializationViewModel.swift */; };
 		3FE04BA02494F41D0041E6F9 /* AppInitializationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE04B9F2494F41D0041E6F9 /* AppInitializationViewController.swift */; };
 		3FE04BA224950A220041E6F9 /* MoviesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE04BA124950A220041E6F9 /* MoviesSection.swift */; };
+		3FE04BA52495166B0041E6F9 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE04BA42495166B0041E6F9 /* BaseRouter.swift */; };
 		3FE04BA924951D2A0041E6F9 /* Collection+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE04BA824951D2A0041E6F9 /* Collection+Utils.swift */; };
 		C6BB609BDA2FA98CF6DC6054 /* Pods_Rxlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19B7183382BFBDE73B14A08 /* Pods_Rxlist.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		3FE04B9D2494F2970041E6F9 /* AppInitializationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializationViewModel.swift; sourceTree = "<group>"; };
 		3FE04B9F2494F41D0041E6F9 /* AppInitializationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializationViewController.swift; sourceTree = "<group>"; };
 		3FE04BA124950A220041E6F9 /* MoviesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSection.swift; sourceTree = "<group>"; };
+		3FE04BA42495166B0041E6F9 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		3FE04BA824951D2A0041E6F9 /* Collection+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utils.swift"; sourceTree = "<group>"; };
 		6FDA8335EC6FDEDC5B2E46B2 /* Pods-Rxlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rxlist.debug.xcconfig"; path = "Target Support Files/Pods-Rxlist/Pods-Rxlist.debug.xcconfig"; sourceTree = "<group>"; };
 		B19B7183382BFBDE73B14A08 /* Pods_Rxlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rxlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +238,14 @@
 			path = AppLoading;
 			sourceTree = "<group>";
 		};
+		3FE04BA3249516510041E6F9 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3FE04BA42495166B0041E6F9 /* BaseRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		4D05EE045C647CB9A0A5A2F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +384,7 @@
 				3F1428EF2493C5C70000202D /* ReadOnlyVariable.swift in Sources */,
 				3F1428D924939C4A0000202D /* ResultConvertible.swift in Sources */,
 				3FE04B992494EDDB0041E6F9 /* AppInitializationManager.swift in Sources */,
+				3FE04BA52495166B0041E6F9 /* BaseRouter.swift in Sources */,
 				3F1428DD2493A02E0000202D /* APISerivce.swift in Sources */,
 				3FE04BA02494F41D0041E6F9 /* AppInitializationViewController.swift in Sources */,
 				3FD1F9212440AC8000803AB7 /* SearchViewModel.swift in Sources */,
