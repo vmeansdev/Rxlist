@@ -10,6 +10,14 @@ struct Movie: Codable {
     let runtime: String?
     let genre: String?
     let poster: String?
+    let plot: String?
+    let director: String?
+    let writer: String?
+    let actors: String?
+    let language: String?
+    let country: String?
+    let rating: String?
+
 
     // MARK: Keys
 
@@ -23,6 +31,13 @@ struct Movie: Codable {
         case runtime = "Runtime"
         case genre = "Genre"
         case poster = "Poster"
+        case plot = "Plot"
+        case director = "Director"
+        case writer = "Writer"
+        case actors = "Actors"
+        case language = "Language"
+        case country = "Country"
+        case rating = "imdbRating"
 
     }
 
@@ -38,6 +53,13 @@ struct Movie: Codable {
         self.runtime = try? container.decode(String.self, forKey: .runtime)
         self.genre = try? container.decode(String.self, forKey: .genre)
         self.poster = try? container.decode(String.self, forKey: .poster)
+        self.plot  = try? container.decode(String.self, forKey: .plot)
+        self.director = try? container.decode(String.self, forKey: .director)
+        self.writer = try? container.decode(String.self, forKey: .writer)
+        self.actors = try? container.decode(String.self, forKey: .actors)
+        self.language = try? container.decode(String.self, forKey: .language)
+        self.country = try? container.decode(String.self, forKey: .country)
+        self.rating = try? container.decode(String.self, forKey: .rating)
     }
 
     // MARK: Encodable
@@ -64,6 +86,27 @@ struct Movie: Codable {
         if let poster = poster {
             try container.encode(poster, forKey: .poster)
         }
+        if let plot = plot {
+            try container.encode(plot, forKey: .plot)
+        }
+        if let director = director {
+            try container.encode(director, forKey: .director)
+        }
+        if let writer = writer {
+            try container.encode(writer, forKey: .writer)
+        }
+        if let actors = actors {
+            try container.encode(actors, forKey: .actors)
+        }
+        if let language = language {
+            try container.encode(language, forKey: .language)
+        }
+        if let country = country {
+            try container.encode(country, forKey: .country)
+        }
+        if let rating = rating {
+            try container.encode(rating, forKey: .rating)
+        }
     }
 }
 
@@ -79,7 +122,14 @@ extension Movie: Equatable {
         lhs.released == rhs.released &&
         lhs.runtime == rhs.runtime &&
         lhs.genre == rhs.genre &&
-        lhs.poster == rhs.poster
+        lhs.poster == rhs.poster &&
+        lhs.plot == rhs.plot &&
+        lhs.director == rhs.director &&
+        lhs.writer == rhs.writer &&
+        lhs.actors == rhs.actors &&
+        lhs.language == rhs.language &&
+        lhs.country == rhs.country &&
+        lhs.rating == rhs.rating
     }
 
 }
@@ -97,6 +147,13 @@ extension Movie: Hashable {
         hasher.combine(runtime)
         hasher.combine(genre)
         hasher.combine(poster)
+        hasher.combine(plot)
+        hasher.combine(director)
+        hasher.combine(writer)
+        hasher.combine(actors)
+        hasher.combine(language)
+        hasher.combine(country)
+        hasher.combine(rating)
     }
 
 }
@@ -114,7 +171,14 @@ extension Movie: CustomDebugStringConvertible {
             "released = \(released ?? notAvailable)",
             "runtime = \(runtime ?? notAvailable)",
             "genre = \(genre ?? notAvailable)",
-            "poster = \(poster ?? notAvailable)"
+            "poster = \(poster ?? notAvailable)",
+            "plot = \(plot ?? notAvailable)",
+            "director = \(director ?? notAvailable)",
+            "writer = \(writer ?? notAvailable)",
+            "actors = \(actors ?? notAvailable)",
+            "language = \(language ?? notAvailable)",
+            "country = \(country ?? notAvailable)",
+            "rating = \(rating ?? notAvailable)"
         ].joined(separator: ", ")
     }
 
@@ -122,4 +186,4 @@ extension Movie: CustomDebugStringConvertible {
 
 // MARK: -
 
-private let notAvailable = "N/A"
+let notAvailable = "N/A"
