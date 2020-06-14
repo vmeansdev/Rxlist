@@ -34,6 +34,7 @@
 		3FE04B9E2494F2970041E6F9 /* AppInitializationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE04B9D2494F2970041E6F9 /* AppInitializationViewModel.swift */; };
 		3FE04BA02494F41D0041E6F9 /* AppInitializationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE04B9F2494F41D0041E6F9 /* AppInitializationViewController.swift */; };
 		3FE04BA224950A220041E6F9 /* MoviesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE04BA124950A220041E6F9 /* MoviesSection.swift */; };
+		3FE04BA924951D2A0041E6F9 /* Collection+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE04BA824951D2A0041E6F9 /* Collection+Utils.swift */; };
 		C6BB609BDA2FA98CF6DC6054 /* Pods_Rxlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19B7183382BFBDE73B14A08 /* Pods_Rxlist.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		3FE04B9D2494F2970041E6F9 /* AppInitializationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializationViewModel.swift; sourceTree = "<group>"; };
 		3FE04B9F2494F41D0041E6F9 /* AppInitializationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializationViewController.swift; sourceTree = "<group>"; };
 		3FE04BA124950A220041E6F9 /* MoviesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSection.swift; sourceTree = "<group>"; };
+		3FE04BA824951D2A0041E6F9 /* Collection+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utils.swift"; sourceTree = "<group>"; };
 		6FDA8335EC6FDEDC5B2E46B2 /* Pods-Rxlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rxlist.debug.xcconfig"; path = "Target Support Files/Pods-Rxlist/Pods-Rxlist.debug.xcconfig"; sourceTree = "<group>"; };
 		B19B7183382BFBDE73B14A08 /* Pods_Rxlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rxlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -211,6 +213,7 @@
 				3FE04B8B2493DAED0041E6F9 /* UIViewController+Utils.swift */,
 				3FE04B8D2493DB8F0041E6F9 /* UIView+Utils.swift */,
 				3FE04B8F2493E6990041E6F9 /* UITableViewCell+Utils.swift */,
+				3FE04BA824951D2A0041E6F9 /* Collection+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				3FE04BA02494F41D0041E6F9 /* AppInitializationViewController.swift in Sources */,
 				3FD1F9212440AC8000803AB7 /* SearchViewModel.swift in Sources */,
 				3FE04B9E2494F2970041E6F9 /* AppInitializationViewModel.swift in Sources */,
+				3FE04BA924951D2A0041E6F9 /* Collection+Utils.swift in Sources */,
 				3FD1F9232440AD2500803AB7 /* OMDBService.swift in Sources */,
 				3FE04B9B2494EE070041E6F9 /* AssemblyFactory.swift in Sources */,
 				3FE04B952494E7B40041E6F9 /* BaseAssembly.swift in Sources */,
