@@ -3,9 +3,16 @@ import UIKit
 final class SearchAssembly: BaseAssembly {
 
     func searchViewController() -> UIViewController {
-        let service = configuration.serviceFactory.omdbService()
+        let serviceFactory = configuration.serviceFactory
+        let service = serviceFactory.omdbService()
+        let router = SearchRouter(
+            assemblyFactory: configuration.assemblyFactory,
+            serviceFactory: serviceFactory
+        )
         let viewModel = SearchViewModel(service: service)
-        return SearchViewController(viewModel: viewModel)
+        let searchViewController = SearchViewController(viewModel: viewModel, router: router)
+        router.viewController = searchViewController
+        return searchViewController
     }
 
 }

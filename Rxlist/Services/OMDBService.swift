@@ -17,7 +17,15 @@ final class OMDBService: APIService {
 
     func getMoviesByTitle(_ title: String) -> Observable<SearchResult<Movie>> {
         guard let url = try? buildURL(path: "/", query: buildQuery(["s": title])) else {
-            return Observable.error(RequestError.buildURL(urlString: "movies"))
+            return Observable.error(RequestError.buildURL(urlString: "getMoviesByTitle"))
+        }
+        debugPrint("[GET]: \(url)")
+        return get(url: url)
+    }
+
+    func getMovieDetailsById(_ imdbID: String) -> Observable<Movie> {
+        guard let url = try? buildURL(path: "/", query: buildQuery(["i": imdbID])) else {
+            return Observable.error(RequestError.buildURL(urlString: "getMovieDetailsById"))
         }
         debugPrint("[GET]: \(url)")
         return get(url: url)

@@ -7,6 +7,8 @@ class SearchViewController: UIViewController {
 
     // MARK: Properties
 
+    private let router: SearchRouter
+
     private let viewModel: SearchViewModel
 
     private var searchBar = UISearchBar().with {
@@ -30,8 +32,9 @@ class SearchViewController: UIViewController {
 
     // MARK: Initialization
 
-    init(viewModel: SearchViewModel) {
+    init(viewModel: SearchViewModel, router: SearchRouter) {
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
         title = "OMDB Movies Search"
     }
@@ -70,9 +73,23 @@ class SearchViewController: UIViewController {
             .distinctUntilChanged(==)
             .map { [MoviesSection(header: "", items: $0.items)] }
             .bind(to: tableView.rx.items(dataSource: dataSource))
+
+        _ = tableView.rx.itemSelected
+            .asObservable()
+            .takeUntil(rx.deallocated)
+            .subscribeOn { [weak self] indexPath in
+                guard let movie = self?.item(for: indexPath) else {
+                    return
+                }
+                self?.router.openMovieDetails(movie)
+            }
     }
 
     // MARK: Private methods
+
+    private func item(for indexPath: IndexPath) -> Movie? {
+        viewModel.state.value.items.element(at: indexPath.row)
+    }
 
     private func configureCell(_ cell: UITableViewCell, movie: Movie) {
         guard let cell = cell as? MovieCell else {

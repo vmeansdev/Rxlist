@@ -14,6 +14,10 @@ class AssemblyFactory {
 
     // MARK: Assemblies
 
+    func movieDetailsAssembly() -> MovieDetailsAssembly {
+        MovieDetailsAssembly(configuration: assemblyConfiguration)
+    }
+
     func searchAssembly() -> SearchAssembly {
         SearchAssembly(configuration: assemblyConfiguration)
     }
