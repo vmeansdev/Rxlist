@@ -21,6 +21,8 @@ final class MovieTitleCell: UITableViewCell {
         }
     }
 
+    // MARK: Subviews
+
     private let titleLabel = UILabel().with {
         $0.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         $0.numberOfLines = 0
@@ -41,7 +43,7 @@ final class MovieTitleCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Private methods
+    // MARK: Layout
 
     private func configureLayout() {
         titleLabel.snp.makeConstraints {
@@ -51,6 +53,8 @@ final class MovieTitleCell: UITableViewCell {
             $0.bottom.equalToSuperview().offset(-8)
         }
     }
+
+    // MARK: UI
 
     private func updateUI() {
         titleLabel.text = model?.title

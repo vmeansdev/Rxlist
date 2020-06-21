@@ -22,6 +22,8 @@ final class MoviePosterCell: UITableViewCell {
         }
     }
 
+    // MARK: Subviews
+
     private let posterView = UIImageView().with {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -39,7 +41,7 @@ final class MoviePosterCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Private methods
+    // MARK: Layout
 
     private func configureLayout() {
         posterView.snp.makeConstraints {
@@ -50,6 +52,8 @@ final class MoviePosterCell: UITableViewCell {
             $0.height.equalTo(500)
         }
     }
+
+    // MARK: UI
 
     private func updateUI() {
         guard let url = model?.imageURL else {

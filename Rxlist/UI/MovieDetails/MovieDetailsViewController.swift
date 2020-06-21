@@ -6,6 +6,8 @@ final class MovieDetailsViewController: UIViewController, UITableViewDataSource 
 
     private let viewModel: MovieDetailsViewModel
 
+    // MARK: Subviews
+
     private lazy var tableView = UITableView().with {
         $0.dataSource = self
         $0.estimatedRowHeight = 250
@@ -90,15 +92,7 @@ final class MovieDetailsViewController: UIViewController, UITableViewDataSource 
         return cell
     }
 
-    // MARK: Private methods
-
-    private func section(at index: Int) -> MovieDetailSection {
-        guard let section = viewModel.state.value.items.element(at: index) else {
-            fatalError("Out of bounds")
-        }
-
-        return section
-    }
+    // MARK: UI
 
     func configurePosterCell(_ cell: UITableViewCell, url: URL?) {
         guard let cell = cell as? MoviePosterCell else {
@@ -128,6 +122,8 @@ final class MovieDetailsViewController: UIViewController, UITableViewDataSource 
         cell.model = .init(title: info.title, details: info.details)
     }
 
+    // MARK: State
+
     private func bindState() {
         _ = viewModel.state.asObservable()
         .takeUntil(rx.deallocated)
@@ -137,6 +133,8 @@ final class MovieDetailsViewController: UIViewController, UITableViewDataSource 
         }
     }
 
+    // MARK: Layout
+
     private func configureLayout() {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -144,6 +142,16 @@ final class MovieDetailsViewController: UIViewController, UITableViewDataSource 
             make.trailing.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+    }
+
+    // MARK: Private methods
+
+    private func section(at index: Int) -> MovieDetailSection {
+        guard let section = viewModel.state.value.items.element(at: index) else {
+            fatalError("Out of bounds")
+        }
+
+        return section
     }
 
 }

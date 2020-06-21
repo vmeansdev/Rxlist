@@ -10,7 +10,7 @@ class AppInitializationViewController: UIViewController {
         instantiateViewController(
             controllerIdentifier: "LaunchScreenIdentifier",
             storyboardIdentifier: "LaunchScreen"
-        ) ?? UIViewController()
+        )
 
     // MARK: Initialization
 

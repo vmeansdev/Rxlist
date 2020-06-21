@@ -11,24 +11,26 @@ class SearchViewController: UIViewController {
 
     private let viewModel: SearchViewModel
 
-    private var searchBar = UISearchBar().with {
-        $0.placeholder = "Type some movie title here"
-    }
-
-    private lazy var tableView = UITableView(frame: .zero, style: .plain).with {
-        $0.estimatedRowHeight = 250
-        $0.keyboardDismissMode = .onDrag
-        $0.rowHeight = UITableView.automaticDimension
-        $0.separatorStyle = .none
-        $0.tableFooterView = UIView()
-    }
-
     private lazy var dataSource = RxTableViewSectionedReloadDataSource<MoviesSection>(configureCell: {
         [weak self] dataSource, tableView, indexPath, item in
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.defaultReuseIdentifier, for: indexPath)
         self?.configureCell(cell, movie: item)
         return cell
     })
+
+    // MARK: Subviews
+
+    private var searchBar = UISearchBar().with {
+        $0.placeholder = "Type some movie title here"
+    }
+
+    private let tableView = UITableView(frame: .zero, style: .plain).with {
+        $0.estimatedRowHeight = 250
+        $0.keyboardDismissMode = .onDrag
+        $0.rowHeight = UITableView.automaticDimension
+        $0.separatorStyle = .none
+        $0.tableFooterView = UIView()
+    }
 
     // MARK: Initialization
 
@@ -60,6 +62,8 @@ class SearchViewController: UIViewController {
         viewModel.reloadIfNeeded()
     }
 
+    // MARK: State
+
     private func bindState() {
         _ = searchBar.rx.text
             .orEmpty
@@ -85,11 +89,7 @@ class SearchViewController: UIViewController {
             }
     }
 
-    // MARK: Private methods
-
-    private func item(for indexPath: IndexPath) -> Movie? {
-        viewModel.state.value.items.element(at: indexPath.row)
-    }
+    // MARK: UI
 
     private func configureCell(_ cell: UITableViewCell, movie: Movie) {
         guard let cell = cell as? MovieCell else {
@@ -98,6 +98,8 @@ class SearchViewController: UIViewController {
         cell.selectionStyle = .none
         cell.model = .init(imageLink: movie.poster, title: movie.title)
     }
+
+    // MARK: Layout
 
     private func configureLayout() {
         searchBar.snp.makeConstraints { make in
@@ -112,6 +114,12 @@ class SearchViewController: UIViewController {
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+    }
+
+    // MARK: Private methods
+
+    private func item(for indexPath: IndexPath) -> Movie? {
+        viewModel.state.value.items.element(at: indexPath.row)
     }
 
 }
