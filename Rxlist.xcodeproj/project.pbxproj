@@ -13,6 +13,7 @@
 		3F1428EC2493C59F0000202D /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1428EB2493C59F0000202D /* Loadable.swift */; };
 		3F1428EF2493C5C70000202D /* ReadOnlyVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1428EE2493C5C70000202D /* ReadOnlyVariable.swift */; };
 		3F1428F22493D6040000202D /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1428F12493D6040000202D /* MovieCell.swift */; };
+		3F8E3B5724AC9A8300532E86 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E3B5624AC9A8300532E86 /* UITableView+Utils.swift */; };
 		3F8F0E432440D21400F9E51D /* ObservableType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F0E422440D21400F9E51D /* ObservableType+Extensions.swift */; };
 		3FD1F90A2440A5C500803AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F9092440A5C500803AB7 /* AppDelegate.swift */; };
 		3FD1F90E2440A5C500803AB7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F90D2440A5C500803AB7 /* SearchViewController.swift */; };
@@ -55,6 +56,7 @@
 		3F1428EB2493C59F0000202D /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		3F1428EE2493C5C70000202D /* ReadOnlyVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadOnlyVariable.swift; sourceTree = "<group>"; };
 		3F1428F12493D6040000202D /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		3F8E3B5624AC9A8300532E86 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
 		3F8F0E422440D21400F9E51D /* ObservableType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extensions.swift"; sourceTree = "<group>"; };
 		3FD1F9062440A5C500803AB7 /* Rxlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rxlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD1F9092440A5C500803AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +196,23 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		3F8E3B5424AC9A3200532E86 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3F8E3B5524AC9A3900532E86 /* UITableView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3F8E3B5524AC9A3900532E86 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				3FE04B8F2493E6990041E6F9 /* UITableViewCell+Utils.swift */,
+				3F8E3B5624AC9A8300532E86 /* UITableView+Utils.swift */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
 		3FD1F8FD2440A5C500803AB7 = {
 			isa = PBXGroup;
 			children = (
@@ -229,11 +248,11 @@
 		3FD1F91D2440AA2900803AB7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3F8E3B5424AC9A3200532E86 /* UI */,
 				3FD1F91E2440AA3F00803AB7 /* NSObjectProtocol+Extensions.swift */,
 				3F8F0E422440D21400F9E51D /* ObservableType+Extensions.swift */,
 				3FE04B8B2493DAED0041E6F9 /* UIViewController+Utils.swift */,
 				3FE04B8D2493DB8F0041E6F9 /* UIView+Utils.swift */,
-				3FE04B8F2493E6990041E6F9 /* UITableViewCell+Utils.swift */,
 				3FE04BA824951D2A0041E6F9 /* Collection+Utils.swift */,
 			);
 			path = Extensions;
@@ -441,6 +460,7 @@
 				3FE04B9B2494EE070041E6F9 /* AssemblyFactory.swift in Sources */,
 				3FE04B952494E7B40041E6F9 /* BaseAssembly.swift in Sources */,
 				3FD1F9252440B6B200803AB7 /* Movie.swift in Sources */,
+				3F8E3B5724AC9A8300532E86 /* UITableView+Utils.swift in Sources */,
 				3FE04BAC2495200C0041E6F9 /* MovieDetailsViewController.swift in Sources */,
 				3F8F0E432440D21400F9E51D /* ObservableType+Extensions.swift in Sources */,
 				3FE04BAE249520AD0041E6F9 /* MovieDetailsViewModel.swift in Sources */,
