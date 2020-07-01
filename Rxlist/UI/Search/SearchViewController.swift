@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
 
     private lazy var dataSource = RxTableViewSectionedReloadDataSource<MoviesSection>(configureCell: {
         [weak self] dataSource, tableView, indexPath, item in
-        let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.defaultReuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(MovieCell.self, for: indexPath)
         self?.configureCell(cell, movie: item)
         return cell
     })
@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
 
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubviews(searchBar, tableView)
-        tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.defaultReuseIdentifier)
+        tableView.registerCell(MovieCell.self)
 
         configureLayout()
 

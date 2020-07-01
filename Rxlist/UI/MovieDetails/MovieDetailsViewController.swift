@@ -48,10 +48,10 @@ final class MovieDetailsViewController: UIViewController, UITableViewDataSource 
     }
 
     private func registerCells() {
-        tableView.register(MoviePosterCell.self, forCellReuseIdentifier: MoviePosterCell.defaultReuseIdentifier)
-        tableView.register(MovieTitleCell.self, forCellReuseIdentifier: MovieTitleCell.defaultReuseIdentifier)
-        tableView.register(MoviePlotCell.self, forCellReuseIdentifier: MoviePlotCell.defaultReuseIdentifier)
-        tableView.register(MovieInfoCell.self, forCellReuseIdentifier: MovieInfoCell.defaultReuseIdentifier)
+        tableView.registerCell(MoviePosterCell.self)
+        tableView.registerCell(MovieTitleCell.self)
+        tableView.registerCell(MoviePlotCell.self)
+        tableView.registerCell(MovieInfoCell.self)
     }
 
     // MARK: UITableViewDataSource
@@ -64,62 +64,20 @@ final class MovieDetailsViewController: UIViewController, UITableViewDataSource 
         var cell: UITableViewCell
         switch section(at: indexPath.row) {
         case .poster(let url):
-            cell = tableView.dequeueReusableCell(
-                withIdentifier: MoviePosterCell.defaultReuseIdentifier,
-                for: indexPath
-            )
-            configurePosterCell(cell, url: url)
+            cell = tableView.dequeueReusableCell(MoviePosterCell.self, for: indexPath)
+            (cell as? MoviePosterCell)?.model = .init(imageURL: url)
         case .title(let title):
-            cell = tableView.dequeueReusableCell(
-                withIdentifier: MovieTitleCell.defaultReuseIdentifier,
-                for: indexPath
-            )
-            configureTitleCell(cell, title: title)
+            cell = tableView.dequeueReusableCell(MovieTitleCell.self, for: indexPath)
+            (cell as? MovieTitleCell)?.model = .init(title: title)
         case .plot(let info):
-            cell = tableView.dequeueReusableCell(
-                withIdentifier: MoviePlotCell.defaultReuseIdentifier,
-                for: indexPath
-            )
-            configurePlotCell(cell, info: info)
+            cell = tableView.dequeueReusableCell(MoviePlotCell.self, for: indexPath)
+            (cell as? MoviePlotCell)?.model = .init(title: info.title, plot: info.details)
         case .info(let info):
-            cell = tableView.dequeueReusableCell(
-                withIdentifier: MovieInfoCell.defaultReuseIdentifier,
-                for: indexPath
-            )
-            configureInfoCell(cell, info: info)
+            cell = tableView.dequeueReusableCell(MovieInfoCell.self, for: indexPath)
+            (cell as? MovieInfoCell)?.model = .init(title: info.title, details: info.details)
         }
         cell.selectionStyle = .none
         return cell
-    }
-
-    // MARK: UI
-
-    func configurePosterCell(_ cell: UITableViewCell, url: URL?) {
-        guard let cell = cell as? MoviePosterCell else {
-            return
-        }
-        cell.model = .init(imageURL: url)
-    }
-
-    func configureTitleCell(_ cell: UITableViewCell, title: String) {
-        guard let cell = cell as? MovieTitleCell else {
-            return
-        }
-        cell.model = .init(title: title)
-    }
-
-    func configurePlotCell(_ cell: UITableViewCell, info: MovieDetailInfo) {
-        guard let cell = cell as? MoviePlotCell else {
-            return
-        }
-        cell.model = .init(title: info.title, plot: info.details)
-    }
-
-    func configureInfoCell(_ cell: UITableViewCell, info: MovieDetailInfo) {
-        guard let cell = cell as? MovieInfoCell else {
-            return
-        }
-        cell.model = .init(title: info.title, details: info.details)
     }
 
     // MARK: State
