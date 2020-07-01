@@ -55,7 +55,13 @@ class SearchViewController: UIViewController {
         tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.defaultReuseIdentifier)
 
         configureLayout()
-        bindState()
+
+        /// This workaround is used to remove warning because of RxDatasources issue
+        /// https://github.com/RxSwiftCommunity/RxDataSources/issues/331
+        // FIXME: Remove workaround once issue is resolved
+        DispatchQueue.main.async { [weak self] in
+            self?.bindState()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
