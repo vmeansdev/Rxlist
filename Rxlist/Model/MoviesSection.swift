@@ -2,7 +2,6 @@ import RxDataSources
 
 struct MoviesSection {
 
-    var header: String
     var items: [Item]
 
 }

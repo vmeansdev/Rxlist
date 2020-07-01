@@ -75,7 +75,7 @@ class SearchViewController: UIViewController {
         _ = viewModel.state.asObservable()
             .takeUntil(rx.deallocated)
             .distinctUntilChanged(==)
-            .map { [MoviesSection(header: "", items: $0.items)] }
+            .map { [MoviesSection(items: $0.items)] }
             .bind(to: tableView.rx.items(dataSource: dataSource))
 
         _ = tableView.rx.itemSelected
