@@ -12,9 +12,10 @@ class SearchViewController: UIViewController {
     private let viewModel: SearchViewModel
 
     private lazy var dataSource = RxTableViewSectionedReloadDataSource<MoviesSection>(configureCell: {
-        [weak self] dataSource, tableView, indexPath, item in
+        [weak self] dataSource, tableView, indexPath, movie in
         let cell = tableView.dequeueReusableCell(MovieCell.self, for: indexPath)
-        self?.configureCell(cell, movie: item)
+        cell.selectionStyle = .none
+        (cell as? MovieCell)?.model = .init(imageLink: movie.poster, title: movie.title)
         return cell
     })
 
@@ -95,16 +96,6 @@ class SearchViewController: UIViewController {
                 }
                 self?.router.openMovieDetails(movie)
             }
-    }
-
-    // MARK: UI
-
-    private func configureCell(_ cell: UITableViewCell, movie: Movie) {
-        guard let cell = cell as? MovieCell else {
-            return
-        }
-        cell.selectionStyle = .none
-        cell.model = .init(imageLink: movie.poster, title: movie.title)
     }
 
     // MARK: Layout
