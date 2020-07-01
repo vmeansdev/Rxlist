@@ -49,6 +49,8 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubviews(searchBar, tableView)
         tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.defaultReuseIdentifier)
 
